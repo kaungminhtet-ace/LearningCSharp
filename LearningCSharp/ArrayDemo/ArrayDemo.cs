@@ -15,7 +15,5 @@ public class ArrayDemo
         {
             Console.WriteLine(color + " ");
         }
-        
-        colors.
     }
 }
