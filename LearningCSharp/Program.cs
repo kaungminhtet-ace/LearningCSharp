@@ -1,7 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using LearningCSharp.ArrayDemo;
+using LearningCSharp.FunctionDemo;
 
-using LearningCSharp.ArrayDemo;
-
-ArrayDemo.Test();
-
-Console.WriteLine("Hello, World!");
+public class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("Hello World!");
+    }
+}
