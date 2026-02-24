@@ -1,16 +1,33 @@
-﻿var s1 = new Student("kaung min htet", 20);
+﻿using LearningCSharp.Tutorial1;
+using LearningCSharp.Tutorial1.CommercialRegistration;
+using LearningCSharp.Tutorial1.ConsumerVehicleRegistration;
+using LearningCSharp.Tutorial1.LiveryRegistration;
 
-Console.WriteLine(s1.Age);
-Console.WriteLine(s1.Name);
+var totalCalc = new TollCalculator();
 
-s1.Name = "Kaung Min Htet";
-Console.WriteLine(s1.Name);
+Car c = new();
+Taxi t = new();
+DeliveryTrack dt = new();
+Bus bus = new();
 
-var p1 = new Point(10, 20);
-var p2 = new Point(10, 20);
+Console.WriteLine($"The toll for a car is {totalCalc.Calculate(c)}");
+Console.WriteLine($"The toll for a taxi is {totalCalc.Calculate(t)}");
+Console.WriteLine($"The toll for a bus is {totalCalc.Calculate(bus)}");
+Console.WriteLine($"The toll for a truck is {totalCalc.Calculate(dt)}");
 
-Console.WriteLine(p1 == p2);
-
-record struct Student(string Name, int Age){ }
-
-record class Point(int X, int Y) {}
+try
+{
+    totalCalc.Calculate("this will fail");
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine("Caught an argument exception when using the wrong type");
+}
+try
+{
+    totalCalc.Calculate(null!);
+}
+catch (ArgumentNullException e)
+{
+    Console.WriteLine("Caught an argument exception when using null");
+}
